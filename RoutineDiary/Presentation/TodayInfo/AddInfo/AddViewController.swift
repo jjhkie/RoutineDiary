@@ -63,6 +63,11 @@ class AddViewController: UIViewController{
             .disposed(by: disposeBag)
         
         
+        //추가 버튼을 클릭했을 떄
+        uploadButton.rx.tap
+            .bind(to: VM.addButtonTapped)
+            .disposed(by: disposeBag)
+        
         VM.push
             .drive(onNext: {viewModel in
                 let viewController = CategoryListViewController()
@@ -71,10 +76,18 @@ class AddViewController: UIViewController{
             })
             .disposed(by: disposeBag)
         
+        VM.addPop
+            .emit(onNext: {[weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         tableView.rx.itemSelected
             .map{ $0.row}
             .bind(to: VM.itemSelected)
             .disposed(by: disposeBag)
+        
+        
     }
     
     private func attribute(){
@@ -104,3 +117,4 @@ class AddViewController: UIViewController{
     }
     
 }
+

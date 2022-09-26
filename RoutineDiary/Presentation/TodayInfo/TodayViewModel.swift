@@ -1,15 +1,31 @@
 
 
-import Foundation
+
 import RxCocoa
+import RxSwift
 
 
 struct TodayViewModel{
     
-    let push: Driver<AddViewModel>
+    let disposeBag = DisposeBag()
     
-    let addButtonTapped = PublishRelay<Void>()
+
+    let TodayCellData: Driver<[TodayData]>
     
-   
+    let addPageButtonTapped = PublishRelay<Void>()
+    
+    init(){
+
+        let TodayList = [
+            TodayData(routineTitle: "aaa", routineGoal: "aa", doIt: true),
+            TodayData(routineTitle: "bbb", routineGoal: "bb", doIt: true),
+        ]
+        
+        self.TodayCellData = Driver.just(TodayList)
+        
+
+        
+        
+    }
     
 }

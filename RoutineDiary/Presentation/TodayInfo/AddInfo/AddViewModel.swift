@@ -11,9 +11,10 @@ struct AddViewModel{
     
     //VM -> V
     //let presentAlert: Signal<Alert>
-    
     let cellData: Driver<[String]>
     let push: Driver<CategoryViewModel>
+    
+    let addPop: Signal<Void>
     
     //V -> VM
     let itemSelected = PublishRelay<Int>()
@@ -69,6 +70,10 @@ struct AddViewModel{
             }
             .asDriver(onErrorDriveWith: .empty())
         
+        self.addPop = addButtonTapped
+            .map{ _ in Void()}
+            .asSignal(onErrorSignalWith: .empty())
+   
 //        self.presentAlert = addButtonTapped
 //            .withLatestFrom(errorMessage)
 //            .map()

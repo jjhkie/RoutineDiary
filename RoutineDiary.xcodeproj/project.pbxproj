@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B46724B728E1259D002F51C8 /* TitleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */; };
+		B46724B928E142AB002F51C8 /* TodayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724B828E142AB002F51C8 /* TodayData.swift */; };
 		B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DB28DD684A007B57D8 /* AddViewController.swift */; };
 		B915A4DF28DD6DF8007B57D8 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */; };
 		B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */; };
-		B915A4E628DD72CD007B57D8 /* TitleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E528DD72CD007B57D8 /* TitleTextFieldCell.swift */; };
 		B915A4E828DD7A6F007B57D8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E728DD7A6F007B57D8 /* Category.swift */; };
 		B915A4EA28DD7AD5007B57D8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E928DD7AD5007B57D8 /* CategoryViewModel.swift */; };
 		B915A4EC28DD7FAE007B57D8 /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4EB28DD7FAE007B57D8 /* TodayViewModel.swift */; };
@@ -32,7 +33,6 @@
 		B9191B1D28DC8F8000F965D1 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9191B1C28DC8F8000F965D1 /* RxSwift */; };
 		B9191B1F28DC8FDD00F965D1 /* RoutineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9191B1E28DC8FDD00F965D1 /* RoutineData.swift */; };
 		B9191B2228DC95D700F965D1 /* TodayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9191B2128DC95D700F965D1 /* TodayViewCell.swift */; };
-		B9191B2428DC96CE00F965D1 /* TodayCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9191B2328DC96CE00F965D1 /* TodayCellData.swift */; };
 		B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9286F6D28E02E3600BB8F76 /* ContentTextFieldCell.swift */; };
 		B9286F7128E02E5300BB8F76 /* ContentTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9286F7028E02E5300BB8F76 /* ContentTextFieldViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -55,10 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCell.swift; sourceTree = "<group>"; };
+		B46724B828E142AB002F51C8 /* TodayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayData.swift; sourceTree = "<group>"; };
 		B915A4DB28DD684A007B57D8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCellViewModel.swift; sourceTree = "<group>"; };
-		B915A4E528DD72CD007B57D8 /* TitleTextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCell.swift; sourceTree = "<group>"; };
 		B915A4E728DD7A6F007B57D8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B915A4E928DD7AD5007B57D8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		B915A4EB28DD7FAE007B57D8 /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		B9191B0F28DC8AE700F965D1 /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		B9191B1E28DC8FDD00F965D1 /* RoutineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineData.swift; sourceTree = "<group>"; };
 		B9191B2128DC95D700F965D1 /* TodayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewCell.swift; sourceTree = "<group>"; };
-		B9191B2328DC96CE00F965D1 /* TodayCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCellData.swift; sourceTree = "<group>"; };
 		B9286F6D28E02E3600BB8F76 /* ContentTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextFieldCell.swift; sourceTree = "<group>"; };
 		B9286F7028E02E5300BB8F76 /* ContentTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextFieldViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,8 +129,8 @@
 		B915A4E428DD705B007B57D8 /* TitleTextFieldInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B915A4E528DD72CD007B57D8 /* TitleTextFieldCell.swift */,
 				B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */,
+				B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */,
 			);
 			path = TitleTextFieldInfo;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				B9191B1E28DC8FDD00F965D1 /* RoutineData.swift */,
-				B9191B2328DC96CE00F965D1 /* TodayCellData.swift */,
 				B915A4E728DD7A6F007B57D8 /* Category.swift */,
+				B46724B828E142AB002F51C8 /* TodayData.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -395,10 +395,11 @@
 				B915A4DF28DD6DF8007B57D8 /* AddViewModel.swift in Sources */,
 				B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */,
 				B9191B0C28DC8AB500F965D1 /* TodayViewController.swift in Sources */,
+				B46724B728E1259D002F51C8 /* TitleTextFieldCell.swift in Sources */,
 				B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */,
+				B46724B928E142AB002F51C8 /* TodayData.swift in Sources */,
 				B915A4EF28DDA623007B57D8 /* CategoryListViewController.swift in Sources */,
 				B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */,
-				B915A4E628DD72CD007B57D8 /* TitleTextFieldCell.swift in Sources */,
 				B9191B1F28DC8FDD00F965D1 /* RoutineData.swift in Sources */,
 				B9191B2228DC95D700F965D1 /* TodayViewCell.swift in Sources */,
 				B915A4EA28DD7AD5007B57D8 /* CategoryViewModel.swift in Sources */,
@@ -406,7 +407,6 @@
 				B9191B0928DC89F100F965D1 /* RootTabController.swift in Sources */,
 				B9286F7128E02E5300BB8F76 /* ContentTextFieldViewModel.swift in Sources */,
 				B9191ADB28DC88D900F965D1 /* SceneDelegate.swift in Sources */,
-				B9191B2428DC96CE00F965D1 /* TodayCellData.swift in Sources */,
 				B915A4EC28DD7FAE007B57D8 /* TodayViewModel.swift in Sources */,
 				B9191B0E28DC8AC300F965D1 /* RoutineViewController.swift in Sources */,
 				B9191B1028DC8AE700F965D1 /* DayViewController.swift in Sources */,
