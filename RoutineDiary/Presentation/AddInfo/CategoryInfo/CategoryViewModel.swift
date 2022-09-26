@@ -21,8 +21,13 @@ struct CategoryViewModel {
     init(){
         let cateogries = [
             Category(id: 1, name: "운동"),
-            Category(id: 2, name: "공부"),
-            Category(id: 3, name: "휴식")
+            Category(id: 2, name: "생활습관"),
+            Category(id: 3, name: "휴식"),
+            Category(id: 4, name: "독서"),
+            Category(id: 5, name: "취미생활"),
+            Category(id: 6, name: "자산관리"),
+            Category(id: 7, name: "개인 시간"),
+            Category(id: 8, name: "업무")
         ]
         
         self.cellData = Driver.just(cateogries)

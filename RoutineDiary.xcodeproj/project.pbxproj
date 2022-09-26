@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B46724B728E1259D002F51C8 /* TitleTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */; };
 		B46724B928E142AB002F51C8 /* TodayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724B828E142AB002F51C8 /* TodayData.swift */; };
+		B46724BB28E182A2002F51C8 /* RoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */; };
+		B46724BD28E19A83002F51C8 /* RoutineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */; };
 		B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DB28DD684A007B57D8 /* AddViewController.swift */; };
 		B915A4DF28DD6DF8007B57D8 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */; };
 		B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCell.swift; sourceTree = "<group>"; };
 		B46724B828E142AB002F51C8 /* TodayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayData.swift; sourceTree = "<group>"; };
+		B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewModel.swift; sourceTree = "<group>"; };
+		B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewCell.swift; sourceTree = "<group>"; };
 		B915A4DB28DD684A007B57D8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCellViewModel.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				B9191B0828DC89F100F965D1 /* RootTabController.swift */,
+				B915A4DD28DD6C9B007B57D8 /* AddInfo */,
 				B9191B1128DC8AED00F965D1 /* TodayInfo */,
 				B9191B1228DC8AF700F965D1 /* RoutineInfo */,
 				B9191B1328DC8AFD00F965D1 /* DayInfo */,
@@ -212,7 +217,6 @@
 				B9191B0B28DC8AB500F965D1 /* TodayViewController.swift */,
 				B9191B2128DC95D700F965D1 /* TodayViewCell.swift */,
 				B915A4EB28DD7FAE007B57D8 /* TodayViewModel.swift */,
-				B915A4DD28DD6C9B007B57D8 /* AddInfo */,
 			);
 			path = TodayInfo;
 			sourceTree = "<group>";
@@ -221,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				B9191B0D28DC8AC300F965D1 /* RoutineViewController.swift */,
+				B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */,
+				B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */,
 			);
 			path = RoutineInfo;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				B9191B0C28DC8AB500F965D1 /* TodayViewController.swift in Sources */,
 				B46724B728E1259D002F51C8 /* TitleTextFieldCell.swift in Sources */,
 				B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */,
+				B46724BD28E19A83002F51C8 /* RoutineViewCell.swift in Sources */,
 				B46724B928E142AB002F51C8 /* TodayData.swift in Sources */,
 				B915A4EF28DDA623007B57D8 /* CategoryListViewController.swift in Sources */,
 				B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */,
@@ -407,6 +414,7 @@
 				B9191B0928DC89F100F965D1 /* RootTabController.swift in Sources */,
 				B9286F7128E02E5300BB8F76 /* ContentTextFieldViewModel.swift in Sources */,
 				B9191ADB28DC88D900F965D1 /* SceneDelegate.swift in Sources */,
+				B46724BB28E182A2002F51C8 /* RoutineViewModel.swift in Sources */,
 				B915A4EC28DD7FAE007B57D8 /* TodayViewModel.swift in Sources */,
 				B9191B0E28DC8AC300F965D1 /* RoutineViewController.swift in Sources */,
 				B9191B1028DC8AE700F965D1 /* DayViewController.swift in Sources */,
