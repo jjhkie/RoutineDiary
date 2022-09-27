@@ -25,10 +25,6 @@ class AddViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-    }
     
     func bind(_ VM: AddViewModel){
         VM.cellData

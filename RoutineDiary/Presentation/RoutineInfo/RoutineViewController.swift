@@ -9,9 +9,6 @@ class RoutineViewController: UIViewController{
     
     let RoutineList = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
-  
-     
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -39,6 +36,7 @@ class RoutineViewController: UIViewController{
                 print("\(indexPath)")
                 self?.navigationController?.pushViewController(RoutineCategoryController(), animated: true)
             })
+            .disposed(by: disposeBag)
 //        RoutineList.rx.modelSelected(Category.self)
 //            .subscribe(onNext: { Category in
 //                print(Category.name)

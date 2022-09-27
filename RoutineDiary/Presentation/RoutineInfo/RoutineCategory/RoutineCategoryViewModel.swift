@@ -10,29 +10,38 @@ class RoutineCategoryViewModel{
     let disposeBag = DisposeBag()
     
     //셀에 뿌릴 값
-    //let cellData: Driver<[RoutineCategory]>
+    let cellData: Driver<[RoutineCategory]>
     
     //받아온 값
     let jsonData = PublishSubject<[RoutineCategory]>()
     
     init(){
-
+        
+        let routineCategories = [
+            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+        ]
+        
+        self.cellData = Driver.just(routineCategories)
     }
     
 
-    func reloadData(){
-        _ = ServiceManager.fetchData()
-            .subscribe{event in
-                switch event{
-                case .next(let data):
-                    break
-                case .error(let err):
-                    break
-                case .completed:
-                    break
-                }
-                
-            }
-    }
+//    func reloadData(){
+//        _ = ServiceManager.fetchData()
+//            .subscribe{event in
+//                switch event{
+//                case .next(let data):
+//                    break
+//                case .error(let err):
+//                    break
+//                case .completed:
+//                    break
+//                }
+//
+//            }
+//    }
     
 }
