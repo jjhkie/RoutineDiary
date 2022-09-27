@@ -8,7 +8,7 @@ import SnapKit
 class AddViewController: UIViewController{
     
     let disposeBag = DisposeBag()
-    
+
     let tableView = UITableView()
     let uploadButton = UIBarButtonItem()
     

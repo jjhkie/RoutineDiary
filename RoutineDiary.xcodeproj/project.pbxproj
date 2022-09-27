@@ -11,6 +11,12 @@
 		B46724B928E142AB002F51C8 /* TodayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724B828E142AB002F51C8 /* TodayData.swift */; };
 		B46724BB28E182A2002F51C8 /* RoutineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */; };
 		B46724BD28E19A83002F51C8 /* RoutineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */; };
+		B46C581C28E27FD900FA3093 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C581B28E27FD900FA3093 /* TitleHeaderView.swift */; };
+		B46C581E28E2967F00FA3093 /* Category.json in Resources */ = {isa = PBXBuildFile; fileRef = B46C581D28E2967F00FA3093 /* Category.json */; };
+		B46C582028E2B56B00FA3093 /* RoutineCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C581F28E2B56B00FA3093 /* RoutineCategoryController.swift */; };
+		B46C582328E2BF1400FA3093 /* RoutineCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C582228E2BF1400FA3093 /* RoutineCategory.swift */; };
+		B46C582528E2BFE100FA3093 /* RoutineCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C582428E2BFE100FA3093 /* RoutineCategoryViewModel.swift */; };
+		B46C582728E2CF1100FA3093 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46C582628E2CF1100FA3093 /* ServiceManager.swift */; };
 		B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DB28DD684A007B57D8 /* AddViewController.swift */; };
 		B915A4DF28DD6DF8007B57D8 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */; };
 		B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */; };
@@ -61,6 +67,12 @@
 		B46724B828E142AB002F51C8 /* TodayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayData.swift; sourceTree = "<group>"; };
 		B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewModel.swift; sourceTree = "<group>"; };
 		B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineViewCell.swift; sourceTree = "<group>"; };
+		B46C581B28E27FD900FA3093 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		B46C581D28E2967F00FA3093 /* Category.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Category.json; sourceTree = "<group>"; };
+		B46C581F28E2B56B00FA3093 /* RoutineCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCategoryController.swift; sourceTree = "<group>"; };
+		B46C582228E2BF1400FA3093 /* RoutineCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCategory.swift; sourceTree = "<group>"; };
+		B46C582428E2BFE100FA3093 /* RoutineCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCategoryViewModel.swift; sourceTree = "<group>"; };
+		B46C582628E2CF1100FA3093 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		B915A4DB28DD684A007B57D8 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTextFieldCellViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +130,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B46C582128E2B57000FA3093 /* RoutineCategory */ = {
+			isa = PBXGroup;
+			children = (
+				B46C581F28E2B56B00FA3093 /* RoutineCategoryController.swift */,
+				B46C582428E2BFE100FA3093 /* RoutineCategoryViewModel.swift */,
+			);
+			path = RoutineCategory;
+			sourceTree = "<group>";
+		};
+		B46C582828E2CF1700FA3093 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B46C582628E2CF1100FA3093 /* ServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B915A4DD28DD6C9B007B57D8 /* AddInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +205,10 @@
 				B9191AE128DC88DA00F965D1 /* Assets.xcassets */,
 				B9191AE328DC88DA00F965D1 /* LaunchScreen.storyboard */,
 				B9191AE628DC88DA00F965D1 /* Info.plist */,
+				B46C582828E2CF1700FA3093 /* Service */,
 				B9191B2028DC8FE400F965D1 /* Entities */,
 				B9191B0A28DC8A3F00F965D1 /* Presentation */,
+				B46C581D28E2967F00FA3093 /* Category.json */,
 			);
 			path = RoutineDiary;
 			sourceTree = "<group>";
@@ -227,6 +258,8 @@
 				B9191B0D28DC8AC300F965D1 /* RoutineViewController.swift */,
 				B46724BA28E182A2002F51C8 /* RoutineViewModel.swift */,
 				B46724BC28E19A83002F51C8 /* RoutineViewCell.swift */,
+				B46C581B28E27FD900FA3093 /* TitleHeaderView.swift */,
+				B46C582128E2B57000FA3093 /* RoutineCategory */,
 			);
 			path = RoutineInfo;
 			sourceTree = "<group>";
@@ -245,6 +278,7 @@
 				B9191B1E28DC8FDD00F965D1 /* RoutineData.swift */,
 				B915A4E728DD7A6F007B57D8 /* Category.swift */,
 				B46724B828E142AB002F51C8 /* TodayData.swift */,
+				B46C582228E2BF1400FA3093 /* RoutineCategory.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -373,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9191AE528DC88DA00F965D1 /* LaunchScreen.storyboard in Resources */,
+				B46C581E28E2967F00FA3093 /* Category.json in Resources */,
 				B9191AE228DC88DA00F965D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,8 +437,10 @@
 				B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */,
 				B9191B0C28DC8AB500F965D1 /* TodayViewController.swift in Sources */,
 				B46724B728E1259D002F51C8 /* TitleTextFieldCell.swift in Sources */,
+				B46C582328E2BF1400FA3093 /* RoutineCategory.swift in Sources */,
 				B915A4E328DD7057007B57D8 /* TitleTextFieldCellViewModel.swift in Sources */,
 				B46724BD28E19A83002F51C8 /* RoutineViewCell.swift in Sources */,
+				B46C582028E2B56B00FA3093 /* RoutineCategoryController.swift in Sources */,
 				B46724B928E142AB002F51C8 /* TodayData.swift in Sources */,
 				B915A4EF28DDA623007B57D8 /* CategoryListViewController.swift in Sources */,
 				B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */,
@@ -411,11 +448,14 @@
 				B9191B2228DC95D700F965D1 /* TodayViewCell.swift in Sources */,
 				B915A4EA28DD7AD5007B57D8 /* CategoryViewModel.swift in Sources */,
 				B9191AD928DC88D900F965D1 /* AppDelegate.swift in Sources */,
+				B46C582528E2BFE100FA3093 /* RoutineCategoryViewModel.swift in Sources */,
 				B9191B0928DC89F100F965D1 /* RootTabController.swift in Sources */,
+				B46C582728E2CF1100FA3093 /* ServiceManager.swift in Sources */,
 				B9286F7128E02E5300BB8F76 /* ContentTextFieldViewModel.swift in Sources */,
 				B9191ADB28DC88D900F965D1 /* SceneDelegate.swift in Sources */,
 				B46724BB28E182A2002F51C8 /* RoutineViewModel.swift in Sources */,
 				B915A4EC28DD7FAE007B57D8 /* TodayViewModel.swift in Sources */,
+				B46C581C28E27FD900FA3093 /* TitleHeaderView.swift in Sources */,
 				B9191B0E28DC8AC300F965D1 /* RoutineViewController.swift in Sources */,
 				B9191B1028DC8AE700F965D1 /* DayViewController.swift in Sources */,
 				B915A4E828DD7A6F007B57D8 /* Category.swift in Sources */,
