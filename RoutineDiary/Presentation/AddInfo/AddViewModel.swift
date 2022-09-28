@@ -7,6 +7,8 @@ import RealmSwift
 
 
 struct AddViewModel{
+    
+    let disposeBag = DisposeBag()
     let titleTextFieldVM = TitleTextFieldCellViewModel()
     let contentTextFieldVM = ContentTextFieldViewModel()
     
@@ -21,8 +23,17 @@ struct AddViewModel{
     let itemSelected = PublishRelay<Int>()
     let addButtonTapped = PublishRelay<Void>()
     
+    
+    
+    
     //루틴 데이터 추가
     let routineAdd = PublishRelay<RoutineData>()
+
+    
+    
+    
+    
+    
     
     
     
@@ -59,13 +70,18 @@ struct AddViewModel{
             .startWith(true)
             .map{ $0 ? ["내용을 입력해주세요"] : []}
             
-        let errorMessage = Observable
+        let combineMessage = Observable
             .combineLatest(
                 titleMessage,
                 categoryMessage,
                 contentMessage
                 ){$0 + $1 + $2}
-
+        
+        //이걸로 가능?
+        let combineValue = Observable.from([titleTextFieldVM.titleTextValue,categoryVM.selectedCategory,contentTextFieldVM.contentValue])
+       
+        
+        
         self.push = itemSelected
             .compactMap{ row -> CategoryViewModel? in
                 guard case 1 = row else {
@@ -84,6 +100,6 @@ struct AddViewModel{
 //            .map()
 //            .asSignal(onErrorSignalWith: .empty())
         
-        self
+        
     }
 }
