@@ -3,6 +3,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 
 struct AddViewModel{
@@ -19,6 +20,10 @@ struct AddViewModel{
     //V -> VM
     let itemSelected = PublishRelay<Int>()
     let addButtonTapped = PublishRelay<Void>()
+    
+    //루틴 데이터 추가
+    let routineAdd = PublishRelay<RoutineData>()
+    
     
     
     init(){
@@ -78,5 +83,7 @@ struct AddViewModel{
 //            .withLatestFrom(errorMessage)
 //            .map()
 //            .asSignal(onErrorSignalWith: .empty())
+        
+        self
     }
 }

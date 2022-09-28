@@ -7,7 +7,10 @@ class RoutineViewController: UIViewController{
     
     let disposeBag = DisposeBag()
     
-    let RoutineList = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    let myRoutineButton = UIBarButtonItem()
+    let routineAddButton = UIBarButtonItem()
+    
+    let RoutineCV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -21,28 +24,28 @@ class RoutineViewController: UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigationBar()
+    }
     
     func bind(_ VM: RoutineViewModel){
-        
-        
+
         VM.RoutineCellData
-            .drive(RoutineList.rx.items(cellIdentifier: "RoutineViewCell",cellType: RoutineViewCell.self)){ row, element, cell in
+            .drive(RoutineCV.rx.items(cellIdentifier: "RoutineViewCell",cellType: RoutineViewCell.self)){ row, element, cell in
+                
                 cell.setData(element)
             }
             .disposed(by: disposeBag)
         
-        RoutineList.rx.itemSelected
+        
+        RoutineCV.rx.itemSelected
             .subscribe(onNext: {[weak self] indexPath in
                 print("\(indexPath)")
                 self?.navigationController?.pushViewController(RoutineCategoryController(), animated: true)
             })
             .disposed(by: disposeBag)
-//        RoutineList.rx.modelSelected(Category.self)
-//            .subscribe(onNext: { Category in
-//                print(Category.name)
-//            })
-//            .disposed(by: disposeBag)
-//
+
     }
     
     
@@ -53,18 +56,22 @@ class RoutineViewController: UIViewController{
         CVFlowLayout.scrollDirection = .vertical
         CVFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let cellSize = (UIScreen.main.bounds.width / 2) - 20
-        CVFlowLayout.itemSize = CGSize(width: cellSize, height: cellSize)
-        CVFlowLayout.headerReferenceSize = .init(width: UIScreen.main.bounds.width, height: 100)
-        RoutineList.collectionViewLayout = CVFlowLayout
+        let cellheight = (UIScreen.main.bounds.height / 4) - 20
+        CVFlowLayout.itemSize = CGSize(width: cellSize, height: cellheight)
         
-        RoutineList.register(TitleHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderView")
+        RoutineCV.collectionViewLayout = CVFlowLayout
+//        CVFlowLayout.headerReferenceSize = .init(width: UIScreen.main.bounds.width, height: 500)
 
-        RoutineList
+//
+//        RoutineCV.register(TitleHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderView")
+
+        RoutineCV
             .supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(row: 0, section: 0))
         
         
         
-        RoutineList.register(RoutineViewCell.self, forCellWithReuseIdentifier: "RoutineViewCell")
+        
+        RoutineCV.register(RoutineViewCell.self, forCellWithReuseIdentifier: "RoutineViewCell")
         
 
         
@@ -74,15 +81,39 @@ class RoutineViewController: UIViewController{
     }
     
     private func layout(){
-        view.addSubview(RoutineList)
+        view.addSubview(RoutineCV)
         
-        RoutineList.snp.makeConstraints{
+        RoutineCV.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
     }
     
     
 }
+
+//NavigationBarItem Action
+private extension RoutineViewController{
+    
+    func setupNavigationBar(){
+        let myRoutinePagePush = UIBarButtonItem(image: UIImage(systemName: "plus.app"), style: .plain, target: self, action: #selector(didTapPush))
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.app"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(didTapAdd))
+      
+        navigationItem.rightBarButtonItems = [myRoutinePagePush,addButton]
+    }
+    
+    
+    @objc func didTapPush(){
+        self.navigationController?.pushViewController(RoutineMyPageController(), animated: true)
+    }
+    @objc func didTapAdd(){
+        self.navigationController?.pushViewController(AddViewController(), animated: true)
+    }
+}
+
 
 ///
 ///TODO 만든 후  얼마나 지났는 지 D- day 설정

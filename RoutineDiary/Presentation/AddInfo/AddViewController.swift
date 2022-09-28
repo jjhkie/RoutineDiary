@@ -27,6 +27,7 @@ class AddViewController: UIViewController{
     
     
     func bind(_ VM: AddViewModel){
+
         VM.cellData
             .drive(tableView.rx.items){ tv, row, data in
                 switch row{
