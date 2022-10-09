@@ -27,8 +27,13 @@ class AddViewController: UIViewController{
     
     
     func bind(_ VM: AddViewModel){
+        
+        let input = AddViewModel.Input(tableItemClick: tableView.rx.itemSelected.asObservable(),
+                                       uploadTapped: uploadButton.rx.tap.asObservable())
 
-        VM.cellData
+        let output = VM.transform(input: input)
+        
+        output.cellData
             .drive(tableView.rx.items){ tv, row, data in
                 switch row{
                 case 0:
@@ -47,25 +52,22 @@ class AddViewController: UIViewController{
                     return cell
                     
                 case 2:
+                    
                     let cell = tv.dequeueReusableCell(withIdentifier: "ContentTextFieldCell", for: IndexPath(row: row, section: 0)) as! ContentTextFieldCell
                     
                     cell.selectionStyle = .none
                     cell.contentInputView.text = data
-                    cell.bind(VM.contentTextFieldVM)
+                    
                     return cell
+                    
                 default:
                     fatalError()
                 }
+                
             }
             .disposed(by: disposeBag)
         
-        
-        //추가 버튼을 클릭했을 떄
-        uploadButton.rx.tap
-            .bind(to: VM.addButtonTapped)
-            .disposed(by: disposeBag)
-        
-        VM.push
+        output.push
             .drive(onNext: {viewModel in
                 let viewController = CategoryListViewController()
                 viewController.bind(viewModel)
@@ -73,18 +75,11 @@ class AddViewController: UIViewController{
             })
             .disposed(by: disposeBag)
         
-        VM.addPop
+        output.addPop
             .emit(onNext: {[weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
-        tableView.rx.itemSelected
-            .map{ $0.row}
-            .bind(to: VM.itemSelected)
-            .disposed(by: disposeBag)
-        
-        
     }
     
     private func attribute(){

@@ -13,7 +13,7 @@ class TitleTextFieldCell: UITableViewCell{
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    
         attribute()
         layout()
     }
@@ -23,9 +23,20 @@ class TitleTextFieldCell: UITableViewCell{
     }
     
     func bind(_ VM: TitleTextFieldCellViewModel){
-        titleInputField.rx.text
-            .bind(to: VM.titleTextValue)
-            .disposed(by: disposeBag)
+        //var mainVM = AddViewModel()
+        
+//        titleInputField.rx.text
+//            .orEmpty
+//            .bind(to: mainVM.titleTextValue)
+//            .disposed(by: disposeBag)
+//
+        
+//        titleInputField.rx.text
+//                    .orEmpty
+//                    .withUnretained(mainVM)// (Object, Element) 듀플 반환
+//                    .bind(onNext: { $0.0.setName($0.1) })
+//                    .disposed(by: disposeBag)
+        
     }
     
     private func attribute(){
