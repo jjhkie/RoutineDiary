@@ -35,7 +35,7 @@ class RoutineCategoryController: UIViewController{
                 let cell = tv.dequeueReusableCell(withIdentifier: "RoutineCategoryCell", for: IndexPath(row: row, section: 0)) as! RoutineCategoryCell
                 
                 cell.titleTextLabel.text = data.title
-                cell.nameTextLabel.text = data.name
+                cell.nameTextLabel.text = data.content
                 
                 return cell
             }

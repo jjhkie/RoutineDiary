@@ -47,9 +47,12 @@
 		B9191B2228DC95D700F965D1 /* TodayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9191B2128DC95D700F965D1 /* TodayViewCell.swift */; };
 		B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9286F6D28E02E3600BB8F76 /* ContentTextFieldCell.swift */; };
 		B9286F7128E02E5300BB8F76 /* ContentTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9286F7028E02E5300BB8F76 /* ContentTextFieldViewModel.swift */; };
+		B928A5B728F4022D009B049B /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B928A5B628F4022D009B049B /* AddModel.swift */; };
 		B92B385628E3167C009ADDEC /* RoutineCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B385528E3167C009ADDEC /* RoutineCategoryCell.swift */; };
 		B92B385828E31ED8009ADDEC /* DayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B385728E31ED8009ADDEC /* DayViewModel.swift */; };
 		B92B385A28E31FA4009ADDEC /* DayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B385928E31FA4009ADDEC /* DayViewCell.swift */; };
+		B93CBC0D28F68B8200ACAEDA /* MyRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93CBC0C28F68B8200ACAEDA /* MyRoutine.swift */; };
+		B93CBC0F28F68C3900ACAEDA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93CBC0E28F68C3900ACAEDA /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,9 +112,12 @@
 		B9191B2128DC95D700F965D1 /* TodayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewCell.swift; sourceTree = "<group>"; };
 		B9286F6D28E02E3600BB8F76 /* ContentTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextFieldCell.swift; sourceTree = "<group>"; };
 		B9286F7028E02E5300BB8F76 /* ContentTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTextFieldViewModel.swift; sourceTree = "<group>"; };
+		B928A5B628F4022D009B049B /* AddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
 		B92B385528E3167C009ADDEC /* RoutineCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCategoryCell.swift; sourceTree = "<group>"; };
 		B92B385728E31ED8009ADDEC /* DayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewModel.swift; sourceTree = "<group>"; };
 		B92B385928E31FA4009ADDEC /* DayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewCell.swift; sourceTree = "<group>"; };
+		B93CBC0C28F68B8200ACAEDA /* MyRoutine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoutine.swift; sourceTree = "<group>"; };
+		B93CBC0E28F68C3900ACAEDA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				B46C582628E2CF1100FA3093 /* ServiceManager.swift */,
+				B93CBC0E28F68C3900ACAEDA /* UserDefaultsManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -177,6 +184,7 @@
 			children = (
 				B915A4DB28DD684A007B57D8 /* AddViewController.swift */,
 				B915A4DE28DD6DF8007B57D8 /* AddViewModel.swift */,
+				B928A5B628F4022D009B049B /* AddModel.swift */,
 				B915A4E428DD705B007B57D8 /* TitleTextFieldInfo */,
 				B915A4ED28DD8570007B57D8 /* CategoryInfo */,
 				B9286F6F28E02E3A00BB8F76 /* ContentTextFieldInfo */,
@@ -187,8 +195,8 @@
 		B915A4E428DD705B007B57D8 /* TitleTextFieldInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */,
 				B46724B628E1259D002F51C8 /* TitleTextFieldCell.swift */,
+				B915A4E228DD7057007B57D8 /* TitleTextFieldCellViewModel.swift */,
 			);
 			path = TitleTextFieldInfo;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				B915A4E728DD7A6F007B57D8 /* Category.swift */,
 				B46724B828E142AB002F51C8 /* TodayData.swift */,
 				B46C582228E2BF1400FA3093 /* RoutineCategory.swift */,
+				B93CBC0C28F68B8200ACAEDA /* MyRoutine.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -463,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B928A5B728F4022D009B049B /* AddModel.swift in Sources */,
 				B915A4DF28DD6DF8007B57D8 /* AddViewModel.swift in Sources */,
 				B462E2BA28E4172E006C5AF5 /* RoutineMyPageController.swift in Sources */,
 				B915A4DC28DD684A007B57D8 /* AddViewController.swift in Sources */,
@@ -476,6 +486,7 @@
 				B915A4EF28DDA623007B57D8 /* CategoryListViewController.swift in Sources */,
 				B9286F6E28E02E3600BB8F76 /* ContentTextFieldCell.swift in Sources */,
 				B9191B1F28DC8FDD00F965D1 /* RoutineData.swift in Sources */,
+				B93CBC0D28F68B8200ACAEDA /* MyRoutine.swift in Sources */,
 				B92B385A28E31FA4009ADDEC /* DayViewCell.swift in Sources */,
 				B9191B2228DC95D700F965D1 /* TodayViewCell.swift in Sources */,
 				B915A4EA28DD7AD5007B57D8 /* CategoryViewModel.swift in Sources */,
@@ -492,6 +503,7 @@
 				B46C581C28E27FD900FA3093 /* TitleHeaderView.swift in Sources */,
 				B462E2BF28E41921006C5AF5 /* RoutineMyPageCell.swift in Sources */,
 				B9191B0E28DC8AC300F965D1 /* RoutineViewController.swift in Sources */,
+				B93CBC0F28F68C3900ACAEDA /* UserDefaultsManager.swift in Sources */,
 				B9191B1028DC8AE700F965D1 /* DayViewController.swift in Sources */,
 				B915A4E828DD7A6F007B57D8 /* Category.swift in Sources */,
 				B92B385828E31ED8009ADDEC /* DayViewModel.swift in Sources */,

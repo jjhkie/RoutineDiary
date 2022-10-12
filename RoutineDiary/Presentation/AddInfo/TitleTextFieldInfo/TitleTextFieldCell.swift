@@ -14,6 +14,7 @@ class TitleTextFieldCell: UITableViewCell{
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
+        bind(TitleTextFieldCellViewModel())
         attribute()
         layout()
     }
@@ -23,14 +24,17 @@ class TitleTextFieldCell: UITableViewCell{
     }
     
     func bind(_ VM: TitleTextFieldCellViewModel){
-        //var mainVM = AddViewModel()
+        let input = TitleTextFieldCellViewModel.Input(titleTextValue: titleInputField.rx.text.orEmpty)
         
+        let output = VM.transform(input: input)
+
+
 //        titleInputField.rx.text
 //            .orEmpty
-//            .bind(to: mainVM.titleTextValue)
+//            .subscribe(onNext: {
+//                print($0)
+//            })
 //            .disposed(by: disposeBag)
-//
-        
 //        titleInputField.rx.text
 //                    .orEmpty
 //                    .withUnretained(mainVM)// (Object, Element) 듀플 반환
@@ -44,10 +48,15 @@ class TitleTextFieldCell: UITableViewCell{
     }
     
     private func layout(){
+
         contentView.addSubview(titleInputField)
-        
+
+
         titleInputField.snp.makeConstraints{
             $0.edges.equalToSuperview().inset(20)
+           
         }
+
+        
     }
 }

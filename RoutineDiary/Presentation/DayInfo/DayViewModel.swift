@@ -12,12 +12,14 @@ struct DayViewModel{
     
     init(){
         let dayDatas = [
-            RoutineCategory(name: "name", title: "여기에 제목을 작성"),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성"),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성"),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성"),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성"),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성")
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동")
+     
+      
         ]
         
         self.dayCellData = Driver.just(dayDatas)

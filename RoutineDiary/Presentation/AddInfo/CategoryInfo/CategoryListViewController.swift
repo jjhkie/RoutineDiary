@@ -35,6 +35,7 @@ class CategoryListViewController: UIViewController{
         
         VM.pop
             .emit(onNext: {[weak self] _ in
+                
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
@@ -43,7 +44,6 @@ class CategoryListViewController: UIViewController{
             .map{ $0.row }
             .bind(to: VM.itemSelected)
             .disposed(by: disposeBag)
-        
     }
     
     private func attribute(){

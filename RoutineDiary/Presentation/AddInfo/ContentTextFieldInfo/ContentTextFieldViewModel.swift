@@ -6,5 +6,5 @@ import RxSwift
 import Foundation
 
 struct ContentTextFieldViewModel{
-    let contentValue = PublishRelay<String?>()
+    let contentValue = PublishRelay<String>()
 }

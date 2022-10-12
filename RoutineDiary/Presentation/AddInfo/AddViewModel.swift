@@ -15,6 +15,7 @@ protocol VM {
 
 class AddViewModel: VM{
     
+    
     struct Input{
         let tableItemClick: Observable<IndexPath>
         let uploadTapped: Observable<Void>
@@ -26,23 +27,65 @@ class AddViewModel: VM{
     }
     
     var disposeBag = DisposeBag()
+
+    
+    private let _inputContentText = PublishRelay<String?>()
+    
+    init(model:AddModel = AddModel()){
+      
+        
+    }
+   
+ 
+
+    
+//    var routinInfo:Observable<RoutineCategory>{
+//        return Observable.combineLatest(_inputTitleText, _inputContentText){
+//            title, content in
+//
+//            return RoutineCategory(title: title, content: content, category: "운동")
+//        }
+//    }
     
     func transform(input: Input) -> Output {
+//        func setTitle(_ title: String?) {
+//            self._inputTitleText.accept(title)
+//        }
         
-        
-        let title = Observable.just("글 제목")
+        let titleVM = TitleTextFieldCellViewModel()
         let categoryVM = CategoryViewModel()
+        let contentVM = ContentTextFieldViewModel()
+        
+        let title = titleVM
+            ._titleTextValue
+            .startWith("글 제목")
+        
+        title
+            .subscribe(onNext: {
+                print($0)
+            })
+            .disposed(by: disposeBag)
         
         let category = categoryVM
             .selectedCategory
             .map{ $0.name}
+            .map(addTestFunc)
             .startWith("카테고리 선택")
-        let content = Observable.just("내용을 입력해주세요")
+        
+//        let content = Observable.just("내용을 입력해주세요")
+//            .map(addTestFunc)
+        
+        let content = contentVM
+            .contentValue
+            //.map(addTestFunc)
+            .startWith("입력해주세요")
+        
         let cellData = Observable
             .combineLatest(title,
                            category,
                            content){ [$0, $1, $2] }
         
+
         //
         let push = input.tableItemClick
             .map{$0.row}
@@ -51,11 +94,25 @@ class AddViewModel: VM{
                 return categoryVM
             }
 
+
         let addPop = input.uploadTapped
-            .map{ _ in
-                Void()
-            }
+            .map{_ in
+                
+                Void()}
+            .asSignal(onErrorSignalWith: .empty())
+        
+        
+        //이거 값이 출력한다???
+        Observable.combineLatest(title, category, content)
+            .map(modelDataAdd)
+            .subscribe(onNext: {data in
+                print("\(data.category)")
+            })
+            .disposed(by: disposeBag)
+
             
+        
+        
         return Output(cellData: cellData.asDriver(onErrorJustReturn: []),
                       push: push.asDriver(onErrorDriveWith: .empty()),
                       addPop: addPop.asSignal(onErrorSignalWith: .empty()))
@@ -63,13 +120,23 @@ class AddViewModel: VM{
     
 }
 
-private func addTestFunc(title: String?, content: String?) -> Void{
-    print("\(title ?? "값이 없습니다.") + \(content ?? " 값이 없습니다.")")
+func addTestFunc(data: String) -> String{
+    
+    return data
+}
+func modelDataAdd(title: String, category: String, content: String) -> RoutineCategory{
+    
+    return RoutineCategory(title: title, content: content, category: category)
 }
 
 private func validation(name: String?, email: String?) -> Bool {
     return name?.isEmpty == false && email?.isEmpty == false
 }
+
+private func testFunc(title: String?) -> Void{
+    print("\(title ?? "aaa ")")
+}
+
 
 //
 //class AddViewModelTest{
@@ -79,31 +146,27 @@ private func validation(name: String?, email: String?) -> Bool {
 //    //VM -> V
 //    //let presentAlert: Signal<Alert>
 //
-//    //let addPop: Signal<RoutineData>
+//
 //    let titleTextValue = PublishRelay<String>()
 //    let contentValue = PublishRelay<String?>()
-//    //let testPop: Signal<TodayModel>
-//
-//    //V -> VM
-//
-//
-//    //var todayData : TodayData
+
+
 //    private let _setName = PublishRelay<String?>()
-//        func setName(_ name: String?) {
-//            self._setName.accept(name)
-//        }
-//    //private let _form: BehaviorRelay<TodayModel>
-//    private let _form = BehaviorRelay<TodayModel>(value: TodayModel(name: "", title: ""))    //init에서 초기화
 //
-//    init(){
+////        func setName(_ name: String?) {
+////            self._setName.accept(name)
+////        }
+//
+//    //private let _form: BehaviorRelay<TodayModel>
+//    private let _form = BehaviorRelay<RoutineCategory>(value: RoutineCategory(name: "", title: ""))    //init에서 초기화
 //
 //        self._setName
 //            .withLatestFrom(self._form, resultSelector: { $1.setName($0!) })
 //            .bind(to: self._form)
 //            .disposed(by: self.disposeBag)
-//  }
 //
-//
+////
+////
 //        self.push = itemSelected
 //            .compactMap{ row -> CategoryViewModel? in
 //                guard case 1 = row else {

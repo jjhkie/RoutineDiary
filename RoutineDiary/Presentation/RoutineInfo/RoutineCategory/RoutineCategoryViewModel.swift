@@ -18,11 +18,13 @@ class RoutineCategoryViewModel{
     init(){
         
         let routineCategories = [
-            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
-            RoutineCategory(name: "name", title: "여기에 제목을 작성할겁니다."),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동"),
+            RoutineCategory(title: "여기에 제목을 작성", content: "name", category: "운동")
+     
         ]
         
         self.cellData = Driver.just(routineCategories)

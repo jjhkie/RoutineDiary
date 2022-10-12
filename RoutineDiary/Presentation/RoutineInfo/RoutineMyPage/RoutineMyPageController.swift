@@ -17,7 +17,14 @@ class RoutineMyPageController: UIViewController{
         attribute()
         layout()
     }
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let manager = UserDefaultsManager()
+        manager.setRoutine(MyRoutine(title: "제목 입력헀습니다.", content: "내용을 입력했습니다."))
+        
+        print(manager.getRoutine())
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
