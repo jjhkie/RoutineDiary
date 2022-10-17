@@ -1,38 +1,31 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RealmSwift
 
-protocol VM {
-    
-    associatedtype Input
-    associatedtype Output
-    
-    var disposeBag: DisposeBag{ get set }
-    
-    func transform(input: Input) -> Output
-}
 
-class AddViewModel: VM{
-    
+
+
+final class AddViewModel: VM{
     
     struct Input{
         let tableItemClick: Observable<IndexPath>
         let uploadTapped: Observable<Void>
+        let closeTapped: Observable<Void>
     }
     struct Output{
         let cellData: Driver<[String]>
         let push: Driver<CategoryViewModel>
         let addPop: Signal<Void>
+        let closeDismiss: Signal<Void>
     }
     
     var disposeBag = DisposeBag()
 
+//    private let userDefaultsManager = UserDefaultsManager()
+
     
-    private let _inputContentText = PublishRelay<String?>()
-    
-    init(model:AddModel = AddModel()){
-      
+    init(){
+        
         
     }
    
@@ -46,7 +39,7 @@ class AddViewModel: VM{
 //            return RoutineCategory(title: title, content: content, category: "운동")
 //        }
 //    }
-    
+   
     func transform(input: Input) -> Output {
 //        func setTitle(_ title: String?) {
 //            self._inputTitleText.accept(title)
@@ -56,37 +49,34 @@ class AddViewModel: VM{
         let categoryVM = CategoryViewModel()
         let contentVM = ContentTextFieldViewModel()
         
+        
+    
+        
         let title = titleVM
             ._titleTextValue
-            .startWith("글 제목")
-        
-        title
-            .subscribe(onNext: {
-                print($0)
-            })
-            .disposed(by: disposeBag)
+            
+
+//        title.subscribe(onNext:{
+//            print($0)
+//        })
+//        .disposed(by: disposeBag)
         
         let category = categoryVM
             .selectedCategory
             .map{ $0.name}
-            .map(addTestFunc)
             .startWith("카테고리 선택")
         
-//        let content = Observable.just("내용을 입력해주세요")
-//            .map(addTestFunc)
+
         
         let content = contentVM
             .contentValue
-            //.map(addTestFunc)
             .startWith("입력해주세요")
         
         let cellData = Observable
             .combineLatest(title,
                            category,
                            content){ [$0, $1, $2] }
-        
 
-        //
         let push = input.tableItemClick
             .map{$0.row}
             .compactMap{row -> CategoryViewModel? in
@@ -97,25 +87,33 @@ class AddViewModel: VM{
 
         let addPop = input.uploadTapped
             .map{_ in
-                
+           
                 Void()}
             .asSignal(onErrorSignalWith: .empty())
         
+        //뒤로가기 버튼
+        let closeDismiss = input.closeTapped
+            .map{_ in
+                print(contentVM.contentValue.value)
+                Void()
+            }
         
         //이거 값이 출력한다???
-        Observable.combineLatest(title, category, content)
-            .map(modelDataAdd)
-            .subscribe(onNext: {data in
-                print("\(data.category)")
-            })
-            .disposed(by: disposeBag)
-
-            
+//        Observable.combineLatest(title, category, content)
+//            .map(modelDataAdd)
+//            .subscribe(onNext: {data in
+//                print("\(data.category)")
+//            })
+//            .disposed(by: disposeBag)
+//
+//
         
         
         return Output(cellData: cellData.asDriver(onErrorJustReturn: []),
                       push: push.asDriver(onErrorDriveWith: .empty()),
-                      addPop: addPop.asSignal(onErrorSignalWith: .empty()))
+                      addPop: addPop.asSignal(onErrorSignalWith: .empty()),
+                      closeDismiss: closeDismiss.asSignal(onErrorSignalWith: .empty())
+        )
     }
     
 }
@@ -124,10 +122,7 @@ func addTestFunc(data: String) -> String{
     
     return data
 }
-func modelDataAdd(title: String, category: String, content: String) -> RoutineCategory{
-    
-    return RoutineCategory(title: title, content: content, category: category)
-}
+
 
 private func validation(name: String?, email: String?) -> Bool {
     return name?.isEmpty == false && email?.isEmpty == false
@@ -153,11 +148,10 @@ private func testFunc(title: String?) -> Void{
 
 //    private let _setName = PublishRelay<String?>()
 //
-////        func setName(_ name: String?) {
-////            self._setName.accept(name)
-////        }
+//        func setName(_ name: String?) {
+//            self._setName.accept(name)
+//        }
 //
-//    //private let _form: BehaviorRelay<TodayModel>
 //    private let _form = BehaviorRelay<RoutineCategory>(value: RoutineCategory(name: "", title: ""))    //init에서 초기화
 //
 //        self._setName

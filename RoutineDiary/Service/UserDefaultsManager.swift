@@ -3,10 +3,7 @@
 import Foundation
 
 
-protocol UserDefaultsManagerProtocol{
-    func getRoutine() -> [MyRoutine]
-    func setRoutine(_ newValue: MyRoutine)
-}
+
 
 struct UserDefaultsManager: UserDefaultsManagerProtocol{
     enum Key: String{

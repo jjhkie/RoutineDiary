@@ -9,9 +9,6 @@ class TodayViewController: UIViewController{
     
     let disposeBag = DisposeBag()
     
-
-    //let TodayList = UICollectionView()
-    
     let TodayUV = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -30,7 +27,12 @@ class TodayViewController: UIViewController{
     }
     
     func bind(_ VM: TodayViewModel){
-        VM.TodayCellData
+        
+        let input = TodayViewModel.Input()
+        
+        let output = VM.transform(input: input)
+        
+        output.TodayCellData
             .drive(TodayUV.rx.items(cellIdentifier: "TodayViewCell", cellType:  TodayViewCell.self)){row, element, cell in
                 
                 cell.setData(element)
@@ -79,7 +81,11 @@ private extension TodayViewController{
     }
 
     @objc func didTapAdd(){
-        self.navigationController?.pushViewController(AddViewController(), animated: true)
+        let viewController = UINavigationController(rootViewController: AddDataViewController())
+        viewController.modalPresentationStyle = .fullScreen
+        
+        self.present(viewController, animated: true)
+
     }
 }
 

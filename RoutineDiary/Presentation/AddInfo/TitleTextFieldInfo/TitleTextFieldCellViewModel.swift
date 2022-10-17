@@ -4,11 +4,8 @@ import RxSwift
 
 class TitleTextFieldCellViewModel:VM{
 
-    
-    //let titleTextValue = PublishRelay<String>()
     struct Input{
-        //let titleTextValue : Observable<String>
-        let titleTextValue : ControlProperty<String>
+        let titleTextValue : Observable<String>
     }
     struct Output{
         
@@ -16,25 +13,32 @@ class TitleTextFieldCellViewModel:VM{
     
     var disposeBag = DisposeBag()
     
+    var _titleTextValue: BehaviorRelay<String>
     
-    var _titleTextValue = PublishRelay<String>()
-    
+
     init(){
-        _titleTextValue
-             .subscribe(onNext:{data in
-                 print("cccccc")
-             })
-             .disposed(by: disposeBag)
+        _titleTextValue = BehaviorRelay(value: "글 제목")
+
+        
     }
     
+
+
     func transform(input: Input) -> Output {
+
         input.titleTextValue
-            .subscribe(onNext:{_ in
-                    print("bbb")
-            })
+            .bind(to: self._titleTextValue)
             .disposed(by: disposeBag)
         
-       
+        
+        
+//
+//        input.titleTextValue
+//            .subscribe(onNext:{ data in
+//                self._titleTextValue.accept(data)
+//            })
+//            .disposed(by: disposeBag)
+//
         
         return Output()
     }

@@ -5,7 +5,7 @@ import RxSwift
 import SnapKit
 import RxCocoa
 
-class CategoryListViewController: UIViewController{
+final class CategoryListViewController: UIViewController{
     
     let disposeBag = DisposeBag()
     let tableView = UITableView()

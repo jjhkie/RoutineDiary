@@ -3,46 +3,37 @@
 
 import RxCocoa
 import RxSwift
-import RealmSwift
 
 
-struct TodayViewModel{
+
+class TodayViewModel: VM{
+
     
-    let disposeBag = DisposeBag()
-    let realm = try! Realm()
+    struct Input {
+        
+    }
     
-    let TodayCellData: Driver<[TodayData]>
+    struct Output {
+        let TodayCellData: Driver<[TodayData]>
+    }
+    
+    var disposeBag = DisposeBag()
    
-    
-    
-    
+    let TodayList: [TodayData]
+   
     init(){
 
-        let TodayList = [
+        self.TodayList = [
             TodayData(routineTitle: "aaa", routineGoal: "aa", doIt: true),
             TodayData(routineTitle: "bbb", routineGoal: "bb", doIt: true),
-        ]
-       
+        ]  
         
+    }
+    
+    func transform(input: Input) -> Output {
+        let TodayCellData = Driver.just(TodayList)
         
-        self.TodayCellData = Driver.just(TodayList)
-        
-//        try! realm.write{
-//            realm.add(today)
-//        }
-        
-//        let abc = realm.objects(RoutineData.self)
-       
-        //self.CellData = Driver.just(abc)
-        
-//        try! realm.write{
-//            realm.delete(abc)
-//        }
-//
-        
-        
-       
-        
+        return Output(TodayCellData: TodayCellData.asDriver())
     }
     
 }

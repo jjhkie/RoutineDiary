@@ -17,6 +17,14 @@ struct RoutineCategory: Codable{
 
 extension RoutineCategory {
 
+    
+    func setName(_ title: String) -> RoutineCategory{
+        
+        var newInfo = self
+        print(title)
+        newInfo.title = title
+        return newInfo
+    }
 
     func setTitle(_ title: String) -> RoutineCategory{
         

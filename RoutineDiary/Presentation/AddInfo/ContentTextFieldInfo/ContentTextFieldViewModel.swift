@@ -3,8 +3,16 @@
 import RxCocoa
 import RxSwift
 
-import Foundation
 
-struct ContentTextFieldViewModel{
-    let contentValue = PublishRelay<String>()
+class ContentTextFieldViewModel{
+    
+    let disposeBag = DisposeBag()
+    let contentValue = BehaviorRelay<String>(value: "")
+    
+
+    init(){
+        
+        
+  
+    }
 }

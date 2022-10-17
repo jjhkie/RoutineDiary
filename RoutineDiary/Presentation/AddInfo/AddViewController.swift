@@ -10,7 +10,9 @@ class AddViewController: UIViewController{
     let disposeBag = DisposeBag()
 
     let tableView = UITableView()
-    let uploadButton = UIBarButtonItem()
+    
+    let uploadButton = UIBarButtonItem()// 등록 버튼
+    let closeButton = UIBarButtonItem()// 뒤로가기 버튼
     
     let titleCell = TitleTextFieldCell()
     let contentCell = ContentTextFieldCell()
@@ -30,12 +32,15 @@ class AddViewController: UIViewController{
     
     func bind(_ VM: AddViewModel){
         
-        let input = AddViewModel.Input(tableItemClick: tableView.rx.itemSelected.asObservable(),
-                                       uploadTapped: uploadButton.rx.tap.asObservable()
-
+        let input = AddViewModel.Input(
+                                        tableItemClick: tableView.rx.itemSelected.asObservable(),
+                                       uploadTapped: uploadButton.rx.tap.asObservable(),
+                                       closeTapped: closeButton.rx.tap.asObservable()
         )
 
         let output = VM.transform(input: input)
+        
+  
 
         output.cellData
             .drive(tableView.rx.items){ tv, row, data in
@@ -45,6 +50,7 @@ class AddViewController: UIViewController{
                     
                     cell.selectionStyle = .none
                     cell.titleInputField.placeholder = data
+                    
                     
                     return cell
                 case 1:
@@ -67,7 +73,6 @@ class AddViewController: UIViewController{
                 default:
                     fatalError()
                 }
-                
             }
             .disposed(by: disposeBag)
         
@@ -81,12 +86,20 @@ class AddViewController: UIViewController{
         
         output.addPop
             .emit(onNext: {[weak self] _ in
-     
-                print("\(self!.titleCell.titleInputField.text ?? "aaa"))")
+                //print(VM.titleVM._titleTextValue.value)
+               
                 //addTestFunc(data: VM.form.value)
                 self?.navigationController?.popViewController(animated: true)
                 
             })
+            .disposed(by: disposeBag)
+        
+        //뒤로가기 구현
+        output.closeDismiss
+            .emit(onNext: {
+                self.presentingViewController?.dismiss(animated: true)
+            }
+            )
             .disposed(by: disposeBag)
     }
     
@@ -94,11 +107,16 @@ class AddViewController: UIViewController{
         title = " 루틴 추가 "
         view.backgroundColor = .black
         
+        //뒤로가기 버튼
+        closeButton.title = "닫기"
+        closeButton.style = .done
         
+        //등록 버튼
         uploadButton.title = "추가"
         uploadButton.style = .done
         
         navigationItem.setRightBarButton(uploadButton, animated: true)
+        navigationItem.setLeftBarButton(closeButton, animated: true)
         
         tableView.backgroundColor = .white
         tableView.separatorStyle = .singleLine
